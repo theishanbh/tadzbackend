@@ -4,10 +4,6 @@ const dbConfig = require("./app/config/db.config");
 
 const app = express();
 
-var corsOptions = {
-  origin: "http://localhost:8081",
-};
-
 app.use(cors());
 
 // parse requests of content-type - application/json
@@ -46,6 +42,7 @@ require("./app/routes/user.routes")(app);
 
 app.use("/api/admin", require("./app/routes/admin.routes"));
 app.use("/api/review", require("./app/routes/review.routes"));
+app.use("/api", require("./app/routes/cart.routes"));
 
 // set port, listen for requests
 const PORT = 8080;
