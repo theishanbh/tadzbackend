@@ -36,7 +36,7 @@ module.exports.add_cart_item = async (req, res) => {
 
     if (cart) {
       // if cart exists for the user
-      let itemIndex = cart.items.findIndex((p) => p.productID == productID);
+      let itemIndex = cart.items.findIndex((p) => p.prodID == productID);
 
       // Check if product exists or not
       if (itemIndex > -1) {
