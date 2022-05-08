@@ -30,9 +30,8 @@ module.exports.add_cart_item = async (req, res) => {
     if (!item) {
       res.status(404).send("Item not found!");
     }
-    const price = item.price;
+    const price = Number(item.price);
     const title = item.title;
-    const pid = item.prodID;
 
     if (cart) {
       // if cart exists for the user
@@ -44,7 +43,7 @@ module.exports.add_cart_item = async (req, res) => {
         productItem.quantity += quantity;
         cart.items[itemIndex] = productItem;
       } else {
-        cart.items.push({ productID, title, quantity, price });
+        cart.items.push({ prodID: productID, title, quantity, price });
       }
       cart.bill += quantity * price;
       cart = await cart.save();

@@ -4,17 +4,19 @@ const Cart = mongoose.model(
   "Cart",
   new mongoose.Schema({
     userID: String,
-    items: [{
+    items: [
+      {
         prodID: {
-            type: String,
+          type: String,
         },
         title: String,
         quantity: {
-            type: Number
+          type: Number,
         },
-        price: Number
-    }],
-    bill: String  
+        price: Number,
+      },
+    ],
+    bill: Number,
   })
 );
 
